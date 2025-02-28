@@ -1,0 +1,8 @@
+[requires]
+boost/1.86.0
+ftxui/5.0.0
+yaml-cpp/0.8.0
+
+[generators]
+CMakeToolchain
+CMakeDeps

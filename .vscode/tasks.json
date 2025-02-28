@@ -1,0 +1,29 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "install eddy deps",
+            "type": "shell",
+            "command": "./scripts/conan_install.sh",
+            "group": "build"
+        },
+        {
+            "label": "build eddy",
+            "type": "shell",
+            "command": "./scripts/build.sh",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "run eddy",
+            "type": "shell",
+            "command": "./scripts/run.sh",
+            "group": "none"
+        }
+    ]
+}
