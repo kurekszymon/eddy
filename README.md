@@ -33,3 +33,12 @@ or use tasks: `install eddy deps` and `build eddy` in vscode.
 ./scripts/run.sh
 ```
 or use task: `run eddy` in vscode
+
+
+### Git scripts
+
+to have git scripts run `scripts/setup_hooks` 
+it will check if you used one of keywords to close github issue, 
+if such issue doesn't exist you can bypass it by passing `--no-verify` flag, like
+
+`git commit -m 'random message' --no verify`
