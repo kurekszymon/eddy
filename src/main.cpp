@@ -2,6 +2,7 @@
 #include <atomic> // for atomic
 #include <chrono> // for operator""s, chrono_literals
 #include <iostream>
+#include <memory> // for make_unique
 #include <string> // for string, basic_string, char_traits, operator+, to_string
 #include <thread> // for sleep_for, thread
 #include <vector> // for vector
@@ -20,7 +21,7 @@ using namespace ftxui;
 
 int main()
 {
-    auto config = new Config("config.yaml");
+    auto config = std::make_unique<Config>("config.yaml"); // no need to manually dereference
     auto screen = ScreenInteractive::Fullscreen();
 
     int shift = 0;
