@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Commit message file
+COMMIT_MSG_FILE="$1"
+
+# Regex pattern to match the required words
+PATTERN="(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved)"
+
+# Read the commit message
+COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+# Check if the commit message contains any of the required words
+if ! echo "$COMMIT_MSG" | grep -qiE "$PATTERN"; then
+  echo "Error: Your commit message must contain one of the following words: close, closes, closed, fix, fixes, fixed, resolve, resolves, resolved."
+  exit 1
+fi
+
+exit 0
