@@ -8,24 +8,7 @@
 #include <variant>
 #include <vector>
 
-enum class CPP
-{
-    emscripten,
-    cmake,
-    ninja
-};
-
-enum class Python
-{
-    CPYTHON,
-    PYTHON3
-};
-
-enum class JavaScript
-{
-    NODEJS,
-    V8
-};
+#include "LanguageTools.hpp"
 
 struct Repository
 {
@@ -90,33 +73,6 @@ public:
         {"js", js_mapper}};
 
     template <typename T>
-    struct LanguageTools;
-
-    template <>
-    struct LanguageTools<CPP>
-    {
-        static constexpr std::array<CPP, 3> values = {
-            CPP::emscripten,
-            CPP::cmake,
-            CPP::ninja};
-    };
-
-    template <>
-    struct LanguageTools<Python>
-    {
-        static constexpr std::array<Python, 2> values = {
-            Python::CPYTHON,
-            Python::PYTHON3};
-    };
-
-    template <>
-    struct LanguageTools<JavaScript>
-    {
-        static constexpr std::array<JavaScript, 2> values = {
-            JavaScript::NODEJS,
-            JavaScript::V8};
-    };
-    template <typename T>
     bool is_any_tool_from_language_loaded()
     {
         const auto &enum_values = LanguageTools<T>::values;
@@ -124,11 +80,11 @@ public:
         for (const auto &value : enum_values)
         {
             std::cout << static_cast<int>(value) << "value.. ";
-            return is_item_loaded(value);
+            return Config::is_item_loaded(value);
         }
 
         return false;
-    }
+    };
 
 private:
     void load_yaml_config(const std::string &yaml_file);
