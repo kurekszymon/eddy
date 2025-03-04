@@ -154,7 +154,7 @@ int main()
 
     auto main_renderer = Renderer(main_container, [&]
                                   { return vbox({
-                                        text("Eddy.sh") | bold | hcenter,
+                                        text("eddy.sh") | bold | hcenter,
                                         hbox({
                                             tab_selection->Render() | flex,
                                             exit_button->Render(),

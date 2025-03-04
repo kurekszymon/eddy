@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(Eddy VERSION 1.0)
+project(eddy.sh VERSION 0.1)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -17,6 +17,10 @@ include_directories(${YAMLCPP_INCLUDE_DIRS})
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${Boost_INCLUDE_DIR})
 
-target_link_libraries(Eddy ftxui::ftxui yaml-cpp::yaml-cpp boost::boost)
+target_link_libraries(eddy.sh ftxui::ftxui yaml-cpp::yaml-cpp boost::boost)
 
-set(CMAKE_CXX_FLAGS "-static-libgcc -static-libstdc++")
+# include(InstallRequiredSystemLibraries)
+# set(CPACK_RESOURCE_FILE_LICENSE, "${CMAKE_SOURCE_DIR}/license.txt")
+# set(CPACK_PACKAGE_VERSION_MAJOR, "0")
+# set(CPACK_PACKAGE_VERSION_MINOR, "1")
+# include(CPACK)
