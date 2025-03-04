@@ -2,4 +2,4 @@
 set(SOURCES main.cpp Config.cpp)
 
 # Create the executable
-add_executable(Eddy ${SOURCES})
+add_executable(eddy.sh ${SOURCES})
