@@ -17,10 +17,6 @@ include_directories(${YAMLCPP_INCLUDE_DIRS})
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${Boost_INCLUDE_DIR})
 
-target_link_libraries(eddy.sh ftxui::ftxui yaml-cpp::yaml-cpp boost::boost)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for clang-tidy (ensure clang-tidy in CMakeLists.txt somehow.)
 
-# include(InstallRequiredSystemLibraries)
-# set(CPACK_RESOURCE_FILE_LICENSE, "${CMAKE_SOURCE_DIR}/license.txt")
-# set(CPACK_PACKAGE_VERSION_MAJOR, "0")
-# set(CPACK_PACKAGE_VERSION_MINOR, "1")
-# include(CPACK)
+target_link_libraries(eddy.sh ftxui::ftxui yaml-cpp::yaml-cpp boost::boost)
