@@ -42,3 +42,9 @@ it will check if you used one of keywords to close github issue,
 if such issue doesn't exist you can bypass it by passing `--no-verify` flag, like
 
 `git commit -m 'random message' --no verify`
+
+
+### clang-tidy 
+
+`brew install llvm`
+`echo 'export PATH="/opt/homebrew/opt/llvm/bin:$PATH"' >> ~/.zshrc`

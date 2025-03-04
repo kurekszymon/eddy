@@ -8,7 +8,7 @@ Config::Config(const std::string &yaml_file)
     {
         load_yaml_config(yaml_file);
 
-        if (loaded_items.size() == 0)
+        if (loaded_items.empty())
         {
             throw std::runtime_error("Make sure to provide correct YAML file.");
         }
