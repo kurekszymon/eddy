@@ -7,7 +7,7 @@ repositories:
   - yaml-cpp: https://github.com/jbeder/yaml-cpp
   - fargo-bitbucket: https://bitbucket.org/fargo3d/public.git
 custom_scripts:
-  - echo: echo "hello world" >> ~/.zshrc
+  - echo: echo "hello world"
   - ls: ls
   - mkdir: mkdir ~/hello_crpp
 languages: 
@@ -16,6 +16,7 @@ languages:
     - cmake: 'cmake-123'
     - ninja: 'ninja-123'
   - python: 
-    - cpython: 'python3-123'
+    - pyenv: '3'
   - js:
+    - nvm: v0.40.1
     - node: 'v8-123'
