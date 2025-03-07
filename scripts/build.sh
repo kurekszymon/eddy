@@ -1,3 +1,3 @@
 #!/bin/zsh
-cmake --preset conan-release
-cmake --build conan
+cmake --preset cmake-release
+cmake --build conan 

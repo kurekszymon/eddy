@@ -1,8 +1,43 @@
 {
-    "version": 4,
+    "version": 10,
     "vendor": {
         "conan": {}
     },
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 31,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "cmake-release",
+            "displayName": "'cmake-release' config",
+            "description": "'cmake-release' configure using 'Ninja' generator",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_POLICY_DEFAULT_CMP0091": "NEW",
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+                "CMAKE_CXX_STANDARD": "23",
+                "CMAKE_CXX_STANDARD_REQUIRED": "TRUE"
+            },
+            "toolchainFile": "conan_toolchain.cmake",
+            "binaryDir": "/Users/kurek/repos/eddy.sh/conan"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "cmake-release",
+            "configurePreset": "cmake-release",
+            "jobs": 8
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "cmake-release",
+            "configurePreset": "cmake-release"
+        }
+    ],
     "include": [
         "conan/CMakePresets.json"
     ]
