@@ -34,7 +34,7 @@ public:
         language_factory_map.end()) {
       return language_factory_map[language_name]();
     } else {
-      std::cout << "Language " << language_name << " not supported! exiting.."
+      std::cout << "Language " << language_name << " not supported!"
                 << std::endl;
       return nullptr;
     }

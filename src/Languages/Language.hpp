@@ -33,7 +33,6 @@ public:
       std::string name = tool.first;
       for (auto &tool_info : tool.second) {
         if (!tool_info.loaded) {
-          std::cout << "Skipping " << name << " - not loaded" << std::endl;
           continue;
         }
         loaded_tools.push_back({name, tool_info.version});
@@ -51,7 +50,6 @@ public:
         continue;
       }
       for (auto &tool_info : tool.second) {
-        std::cout << "Loading - " << name << ": ";
         tool_info.set_loaded(true);
         tool_info.set_version(version);
       };

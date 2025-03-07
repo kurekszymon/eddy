@@ -60,11 +60,11 @@ public:
 
       if (c.exit_code() > 0) {
         if (!err_output.empty()) {
-          return "Exit code: " + std::to_string(c.exit_code()) + " " +
-                 err_output;
+          return "Command exited with code: " + std::to_string(c.exit_code()) +
+                 " " + err_output;
         }
 
-        return "Exit code: " + std::to_string(c.exit_code());
+        return "Command exited with code: " + std::to_string(c.exit_code());
       }
 
       return output;

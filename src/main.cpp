@@ -129,7 +129,7 @@ int main() {
     }
 
     auto render_console_output = [console_output]() {
-      return hbox({text("CPP console output: "), text(console_output)});
+      return hbox({text("Lang console output: "), text(console_output)});
     };
     auto lang_renderer = Renderer([render_console_output] {
       return vbox({render_console_output()}) | frame;
