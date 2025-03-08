@@ -22,7 +22,7 @@
                 "CMAKE_CXX_STANDARD_REQUIRED": "TRUE"
             },
             "toolchainFile": "conan_toolchain.cmake",
-            "binaryDir": "/Users/kurek/repos/eddy.sh/conan"
+            "binaryDir": "${sourceDir}/conan"
         }
     ],
     "buildPresets": [
