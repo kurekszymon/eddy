@@ -6,6 +6,15 @@ find_package(ftxui REQUIRED)
 find_package(yaml-cpp REQUIRED)
 find_package(Boost REQUIRED)
 
+find_program(CLANG_TIDY_EXECUTABLE NAMES clang-tidy)
+
+if(CLANG_TIDY_EXECUTABLE)
+  set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY_EXECUTABLE} "-checks=*")
+else()
+  message(
+    STATUS "clang-tidy not found, skipping CMake CXX_CLANG_TIDY configuration.")
+endif()
+
 # Add subdirectory for source files
 add_subdirectory(src)
 
