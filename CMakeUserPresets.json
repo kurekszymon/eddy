@@ -19,7 +19,8 @@
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": true,
                 "CMAKE_CXX_STANDARD": "23",
-                "CMAKE_CXX_STANDARD_REQUIRED": "TRUE"
+                "CMAKE_CXX_STANDARD_REQUIRED": "TRUE",
+                "CMAKE_CXX_CLANG_TIDY": true
             },
             "toolchainFile": "conan_toolchain.cmake",
             "binaryDir": "${sourceDir}/conan"

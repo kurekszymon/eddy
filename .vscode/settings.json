@@ -84,6 +84,9 @@
         "typeindex": "cpp",
         "type_traits": "cpp",
         "chrono": "cpp",
-        "compare": "cpp"
+        "compare": "cpp",
+        "cfenv": "cpp",
+        "cinttypes": "cpp",
+        "strstream": "cpp"
     },
 }
