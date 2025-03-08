@@ -44,63 +44,50 @@ public:
   };
   inline static std::string execute_custom_command(CustomScript command,
                                                    std::string messages) {
-    try {
-      bp::ipstream std_out;
-      bp::ipstream std_err;
+    bp::ipstream std_out;
+    bp::ipstream std_err;
 
-      std::vector<std::string> args = {"-c", command.cmd};
+    std::vector<std::string> args = {"-c", command.cmd};
 
-      bp::child c(bp::search_path("sh"), args, bp::std_out > std_out,
-                  bp::std_err > std_err);
+    bp::child c(bp::search_path("sh"), args, bp::std_out > std_out,
+                bp::std_err > std_err);
 
-      c.wait();
+    c.wait();
 
-      std::string output = retrieve_std_out(std_out);
-      std::string err_output = retrieve_std_out(std_err);
+    std::string output = retrieve_std_out(std_out);
+    std::string err_output = retrieve_std_out(std_err);
 
-      if (c.exit_code() > 0) {
-        if (!err_output.empty()) {
-          return "Command exited with code: " + std::to_string(c.exit_code()) +
-                 " " + err_output;
-        }
-
-        return "Command exited with code: " + std::to_string(c.exit_code());
+    if (c.exit_code() > 0) {
+      if (!err_output.empty()) {
+        return "Command exited with code: " + std::to_string(c.exit_code()) +
+               " " + err_output;
       }
 
-      return output;
-    } catch (const std::exception &e) {
-      std::cerr << "Error during custom command execution: " << e.what()
-                << "\n";
-      std::string error_message = e.what();
-      return error_message;
+      return "Command exited with code: " + std::to_string(c.exit_code());
     }
+
+    return output;
   }
   inline static std::string execute_git_clone(const std::string &repo_url,
                                               const std::string &clone_dir) {
-    try {
-      bp::ipstream std_out;
-      bp::ipstream std_err;
-      std::vector<std::string> args = {"clone", repo_url,
-                                       parse_home_dir(clone_dir)};
+    bp::ipstream std_out;
+    bp::ipstream std_err;
+    std::vector<std::string> args = {"clone", repo_url,
+                                     parse_home_dir(clone_dir)};
 
-      bp::child c(bp::search_path("git"), args, bp::std_out > std_out,
-                  bp::std_err > std_err);
+    bp::child c(bp::search_path("git"), args, bp::std_out > std_out,
+                bp::std_err > std_err);
 
-      c.wait();
+    c.wait();
 
-      std::string output = retrieve_std_out(std_out);
-      std::string err_output = retrieve_std_out(std_err);
+    std::string output = retrieve_std_out(std_out);
+    std::string err_output = retrieve_std_out(std_err);
 
-      if (!err_output.empty()) {
-        return err_output;
-      }
-
-      return output;
-    } catch (const std::exception &e) {
-      std::cerr << "Error during git clone: " << e.what() << "\n";
-      std::string error_message = e.what();
-      return error_message;
+    if (!err_output.empty()) {
+      return err_output;
     }
+
+    return output;
   };
 };
 

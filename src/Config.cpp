@@ -4,14 +4,7 @@
 #include "Config.hpp"
 #include "Languages/LanguageFactory.hpp"
 
-Config::Config(const std::string &yaml_file) {
-  try {
-    load_yaml_config(yaml_file);
-  } catch (const std::exception &e) {
-    std::cerr << "Error: " << e.what() << std::endl;
-    std::exit(EXIT_FAILURE); // Optionally exit if exception is caught
-  }
-}
+Config::Config(const std::string &yaml_file) { load_yaml_config(yaml_file); }
 
 void Config::load_yaml_config(const std::string &yaml_file) {
   YAML::Node config = YAML::LoadFile(yaml_file);

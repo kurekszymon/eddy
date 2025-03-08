@@ -9,7 +9,7 @@ find_package(Boost REQUIRED)
 find_program(CLANG_TIDY_EXECUTABLE NAMES clang-tidy)
 
 if(CLANG_TIDY_EXECUTABLE)
-  set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY_EXECUTABLE} "-checks=*")
+  set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY_EXECUTABLE})
 else()
   message(
     STATUS "clang-tidy not found, skipping CMake CXX_CLANG_TIDY configuration.")
