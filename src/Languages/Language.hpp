@@ -23,7 +23,7 @@ using LoadedTool = std::pair<std::string, std::string>;
 class Language {
 public:
   virtual const ToolMap &get_tools() const = 0;
-  virtual constexpr std::string get_name() const = 0;
+  virtual const std::string get_name() const = 0;
 
   virtual std::vector<LoadedTool> get_loaded_tools() {
     const auto &tools = get_tools();

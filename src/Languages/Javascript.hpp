@@ -10,6 +10,6 @@ class Javascript : public Language {
     return tools;
   }
 
-  constexpr std::string get_name() const override { return "Javascript"; }
+  const std::string get_name() const override { return "Javascript"; }
 };
 #endif // JAVASCRIPT_H

@@ -1,3 +1,3 @@
 #!/bin/zsh
-cmake --preset conan-release
-cmake --build conan 
+cmake -G Ninja --preset cmake-release
+cmake --build conan

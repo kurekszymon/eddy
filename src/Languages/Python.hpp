@@ -10,6 +10,6 @@ class Python : public Language {
     return tools;
   }
 
-  constexpr std::string get_name() const override { return "Python"; }
+  const std::string get_name() const override { return "Python"; }
 };
 #endif // PYTHON_H
